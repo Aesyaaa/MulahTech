@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tables Output</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+        }
+        h2 {
+            margin-top: 2rem;
+        }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ccc;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aesya Suraya</h1>
+    <p>Contact: aesyasurayaa@gmail.com</p>
+    <p>Company: Mulah Technologies Sdn. Bhd.</p>
+    <hr />
+
+    <h2>Table 1</h2>
+    <table id="table1">
+        <tr><th>Index#</th><th>Value</th></tr>
+    </table>
+
+    <h2>Table 2</h2>
+    <table id="table2">
+        <tr><th>Category</th><th>Value</th></tr>
+    </table>
+
+    <div class="footer">
+        Aesya Suraya | Contact: aesyasurayaa@gmail.com<br>
+        Mulah Technologies Sdn. Bhd.
+    </div>
+
+    <script>
+        const table1Data = {
+            A1:41, A2:18, A3:21, A4:63, A5:2, A6:53, A7:5, A8:57, A9:60, A10:93,
+            A11:28, A12:3, A13:90, A14:39, A15:80, A16:88, A17:49, A18:60, A19:26, A20:28
+        };
+
+        const alpha = table1Data.A5 + table1Data.A20;
+        const beta = table1Data.A15 / table1Data.A7;
+        const charlie = table1Data.A13 * table1Data.A12;
+
+        const table1Element = document.getElementById('table1');
+        Object.keys(table1Data).forEach(key => {
+            const row = document.createElement('tr');
+            const indexCell = document.createElement('td');
+            indexCell.innerText = key;
+            const valueCell = document.createElement('td');
+            valueCell.innerText = table1Data[key];
+            row.appendChild(indexCell);
+            row.appendChild(valueCell);
+            table1Element.appendChild(row);
+        });
+
+        const table2Element = document.getElementById('table2');
+        [['Alpha', alpha], ['Beta', beta.toFixed(2)], ['Charlie', charlie]].forEach(rowData => {
+            const row = document.createElement('tr');
+            const catCell = document.createElement('td');
+            catCell.innerText = rowData[0];
+            const valCell = document.createElement('td');
+            valCell.innerText = rowData[1];
+            row.appendChild(catCell);
+            row.appendChild(valCell);
+            table2Element.appendChild(row);
+        });
+    </script>
+</body>
+</html>
